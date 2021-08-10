@@ -6,10 +6,13 @@ import { connect } from 'react-redux';
 
 
 const mapStateToProps = state => {
+
   return { monster: state.monster };
+  
 };
 
 const MonsterConnect = ({ monster }) => (
+
   <section>
     <div className="container">
       <div className="row">
