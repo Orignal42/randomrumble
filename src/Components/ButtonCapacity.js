@@ -2,22 +2,21 @@
  
 import React from 'react';
 import { connect } from 'react-redux'
-import { hitMonster } from '../actions'
+import { hitMonster } from '../actions/index'
 
 const mapStateToProps = (state) => {
-    console.log(state)
-
+return {}
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        hitMonster: (payload)=>dispatch(hitMonster(payload)),
+        hitMonsters: (payload)=> dispatch(hitMonster(payload)),
     };
 }
  
 const ButtonCapacityConnect = ({hitMonsters}) => {
     const combat = () => {
-     hitMonster(-5)
-      console.log('aie !', combat)
+     hitMonsters(-5)
+      console.log('aie !')
     }
     return (
         <button type="button" onClick={() => combat()} className="btn btn-success material-tooltip-main ">

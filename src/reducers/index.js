@@ -11,19 +11,20 @@ const initialState = {
   monster: { pv: 800, pvMax: 800 },
 };
 
-function rootReducer(state = initialState, action) {
+function rootReducer(state = initialState, action) { 
+  let newState;
+  
   switch (action.type) {
-    case "HIT_MONSTER": {
-   
-      {   let newState;
-        newState = {
-            ...state,
-            monster: {...state.monster, pv: state.monster.pv + action.payload},
-        };
+    case 'HIT_MONSTER':
+      newState = {
+        ...state,
+        monster: {...state.monster, pv: state.monster.pv + action.payload},
       };
+      return newState
+  
+    default:
+      return state;
     }
-  }
-  return state;
 }
 
 export default rootReducer;

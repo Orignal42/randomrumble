@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
-  console.log(state.players )
+  // console.log(state.players )
   return { PlayerList: state.players };
  
 };
