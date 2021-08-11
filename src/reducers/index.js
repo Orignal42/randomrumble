@@ -3,7 +3,7 @@
 const initialState = {
   //TODO : complete players {} and monster{}
   players: {
-    1: { name: "John", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 1 },
+    1: { name: "John", pv: 100, pvMax: 100, mana: 15, manaMax: 30, id: 1 },
     2: { name: "Jack", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 2 },
     3: { name: "Jessy", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 3 },
     4: { name: "Jenny", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 4 },
@@ -13,18 +13,38 @@ const initialState = {
 
 function rootReducer(state = initialState, action) { 
   let newState;
-  
+   
   switch (action.type) {
-    case 'HIT_MONSTER':
+      
+    case "HIT_MONSTER":
       newState = {
         ...state,
         monster: {...state.monster, pv: state.monster.pv + action.payload},
       };
       return newState
   
-    default:
-      return state;
+
+     
+        case "HIT_BACK":
+          newState = {
+            ...state,
+            players: {...state.players, 
+              [action.payload.playerId]: {
+                ...state.players[action.payload.playerId],
+                pv:state.players[action.payload.playerId].pv + action.payload.damage,
+                mana:state.players[action.payload.playerId].mana + action.payload.manareduct
+              }
+            },
+          
+          } 
+ 
+           return newState
+        
+      default:
+        return state;
     }
-}
+  }
+    
+
 
 export default rootReducer;

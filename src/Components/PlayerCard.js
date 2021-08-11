@@ -23,10 +23,10 @@ import { connect } from 'react-redux';
                     <span className="badge badge-danger ml-2 " id="degatSpanJ1"></span>
                     <div className="row ">
                         <div >
-                            <ButtonCapacity player={PlayerCard.player} />
-                            <ButtonCapacity player={PlayerCard.player} />
-                            <ButtonCapacity player={PlayerCard.player} />
-                            <ButtonCapacity player={PlayerCard.player} />
+                            <ButtonCapacity player={ownProps.player} />
+                            <ButtonCapacity player={ownProps.player} />
+                            <ButtonCapacity player={ownProps.player} />
+                            <ButtonCapacity player={ownProps.player} />
 
                         </div>
                     </div >

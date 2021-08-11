@@ -1,7 +1,5 @@
 import React from 'react';
 import PlayerCard from './PlayerCard';
-import ButtonCapacity from './ButtonCapacity';
-import ProgressBar from './ProgressBar';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {

@@ -5,3 +5,7 @@ export function hitMonster(payload) {
   export function hitBack(payload) {
     return { type: "HIT_BACK", payload }
   };
+
+  export function hitMana(payload) {
+    return { type: "MANA", payload }
+  };
