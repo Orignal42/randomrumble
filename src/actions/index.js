@@ -9,3 +9,13 @@ export function hitMonster(payload) {
   export function hitMana(payload) {
     return { type: "MANA", payload }
   };
+
+
+  export  function Turn(payload) {
+
+    return { type: "TURN", payload }
+};
+export  function resetTurn(payload) {
+
+  return { type: "RESET_TURN", payload }
+};

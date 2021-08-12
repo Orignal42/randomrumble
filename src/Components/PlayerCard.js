@@ -6,13 +6,15 @@ import { connect } from 'react-redux';
 
 
     const mapStateToProps = (state,props) => {
+   
         return { state:state, 
             ownProps:props, 
+           
         }
     }
 
       const PlayerCardConnect = ({ ownProps }) => (
-        
+ 
             <div key={ownProps.player.id} className="col-sm-3 card center" id={`joueur${ownProps.player.id}`}>
 
                 <div className="card-body text-center">
@@ -23,10 +25,12 @@ import { connect } from 'react-redux';
                     <span className="badge badge-danger ml-2 " id="degatSpanJ1"></span>
                     <div className="row ">
                         <div >
+                        
                             <ButtonCapacity player={ownProps.player} />
                             <ButtonCapacity player={ownProps.player} />
                             <ButtonCapacity player={ownProps.player} />
                             <ButtonCapacity player={ownProps.player} />
+                            
 
                         </div>
                     </div >
