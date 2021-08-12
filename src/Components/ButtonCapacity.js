@@ -2,11 +2,7 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import { hitMonster } from "../actions/index";
-import { hitBack } from "../actions/index";
-import { bigAttack } from "../actions/index";
-import { hitMana } from "../actions/index";
-import { Turn } from "../actions/index";
+import {hitMonster, hitBack , hitMana ,Turn } from "../actions/index";
 
 import "./Button.css"
 const mapStateToProps = (state, props) => {
@@ -21,16 +17,6 @@ const mapStateToProps = (state, props) => {
 
 };
 
-function getRandomInt(min, max) {
-  min = Math.ceil(1);
-  max = Math.floor(4);
-let result=Math.floor(Math.random() * (max - min)) + min;
-return result 
-
-}
-
-
-console.log(getRandomInt())
 
 const mapDispatchToProps = (dispatch) => {
   
@@ -39,28 +25,40 @@ const mapDispatchToProps = (dispatch) => {
     hitBacks : (payload)=> dispatch(hitBack(payload)),
     hitManas : (payload)=> dispatch (hitMana(payload)),
     Turns: (payload) => { dispatch(Turn(payload)) },
-    bigAttacks : (payload)=> dispatch(bigAttack(payload)),
   };
 };
 
 
-const ButtonCapacityConnect = ({ hitMonsters, hitBacks, player,hitManas,Turns, count, players,bigAttacks }) => {
+const ButtonCapacityConnect = ({ hitMonsters, hitBacks, player,hitManas,Turns, count, players }) => {
+  function getRandomInt(min, max) {
+    min = Math.ceil(1);
+    max = Math.floor(4);
+    let result = Math.round(Math.random() * (max - min)) + min;
+    return result 
+  
+  }
   const combat = () => {
+    let id = getRandomInt(1, Object.keys(players).length)
+    console.log(id);
+    
+    while (!players[id].pv >0) {
+      id = getRandomInt(1, Object.keys(players).length)
+      console.log(id);
+    }
     hitMonsters(-5);
-    hitBacks({damage: -5, playerId: player.id});
+    hitBacks({damage: -5, playerId: id});
     hitManas({manare: -5,playerId: player.id});
     Turns({player: player})
-    if(count>=3){
-
-    bigAttacks({bigdamage: -10, playerId: player.id});
-  }
+    if(count >= 3){
+      console.log('test');
+      hitBacks({damage: -10, playerId: id})
+    }
  
    
     console.log("aie !");
 
   };
 
-  // console.log(count);
 
   return (
     <>

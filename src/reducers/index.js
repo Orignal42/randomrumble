@@ -3,10 +3,10 @@
 const initialState = {
   //TODO : complete players {} and monster{}
     players: {
-        1: { played: false, name: "John", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 1 },
-        2: { played: false, name: "Jack", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 2 },
-        3: { played: false, name: "Jessy", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 3 },
-        4: { played: false, name: "Jenny", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 4 },
+        1: { played: false, name: "John", pv: 5, pvMax: 100, mana: 30, manaMax: 30, id: 1 },
+        2: { played: false, name: "Jack", pv: 5, pvMax: 100, mana: 30, manaMax: 30, id: 2 },
+        3: { played: false, name: "Jessy", pv:5, pvMax: 100, mana: 30, manaMax: 30, id: 3 },
+        4: { played: false, name: "Jenny", pv:5, pvMax: 100, mana: 30, manaMax: 30, id: 4 },
     },
     monster: { pv: 800, pvMax: 800 },
 
@@ -78,22 +78,7 @@ function rootReducer(state = initialState, action) {
                 },
                 count : 0
             }
-            return newState   
-
-        
-        case "BIG_ATTACK":
-                    newState = {
-                    ...state,
-                    players: {...state.players, 
-                        [action.payload.playerId]: {
-                            ...state.players[action.payload.playerId],
-                            pv:state.players[action.payload.playerId].pv + action.payload.bigdamage,
-                        }
-                    },
-              
-                } 
-        return newState
-        
+            return newState           
         
             default:
             return state;
