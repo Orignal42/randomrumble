@@ -26,11 +26,11 @@ function getRandomInt(min, max) {
   max = Math.floor(4);
 let result=Math.floor(Math.random() * (max - min)) + min;
 return result 
-console.log(result)
+
 }
 
 
-
+console.log(getRandomInt())
 
 const mapDispatchToProps = (dispatch) => {
   
@@ -49,12 +49,12 @@ const ButtonCapacityConnect = ({ hitMonsters, hitBacks, player,hitManas,Turns, c
     hitMonsters(-5);
     hitBacks({damage: -5, playerId: player.id});
     hitManas({manare: -5,playerId: player.id});
-
+    Turns({player: player})
     if(count>=3){
 
     bigAttacks({bigdamage: -10, playerId: player.id});
   }
-    Turns({player: player})
+ 
    
     console.log("aie !");
 
