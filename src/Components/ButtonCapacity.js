@@ -20,6 +20,18 @@ const mapStateToProps = (state, props) => {
         };
 
 };
+
+function getRandomInt(min, max) {
+  min = Math.ceil(1);
+  max = Math.floor(4);
+let result=Math.floor(Math.random() * (max - min)) + min;
+return result 
+console.log(result)
+}
+
+
+
+
 const mapDispatchToProps = (dispatch) => {
   
   return {
