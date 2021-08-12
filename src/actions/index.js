@@ -15,7 +15,14 @@ export function hitMonster(payload) {
 
     return { type: "TURN", payload }
 };
-export  function resetTurn(payload) {
+  export  function resetTurn(payload) {
 
   return { type: "RESET_TURN", payload }
 };
+
+export  function bigAttack(payload) {
+
+  return { type: "BIG_ATTACK", payload }
+};
+
+

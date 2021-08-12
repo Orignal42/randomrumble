@@ -80,7 +80,22 @@ function rootReducer(state = initialState, action) {
             }
             return newState   
 
-        default:
+        
+        case "BIG_ATTACK":
+                    newState = {
+                    ...state,
+                    players: {...state.players, 
+                        [action.payload.playerId]: {
+                            ...state.players[action.payload.playerId],
+                            pv:state.players[action.payload.playerId].pv + action.payload.bigdamage,
+                        }
+                    },
+              
+                } 
+        return newState
+        
+        
+            default:
             return state;
     }
   }

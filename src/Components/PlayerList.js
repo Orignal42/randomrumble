@@ -24,7 +24,7 @@ const PlayerListConnect = ({PlayerList, count, reset}) => {
   const displayPlayers = () => {
     return Object.keys(PlayerList).map(key => {
       if (count >= 4) {
-          console.log(key);
+       //   console.log(key);
           
            reset({player: PlayerList[key]})
       }  
@@ -34,9 +34,7 @@ const PlayerListConnect = ({PlayerList, count, reset}) => {
       )
     });
   }
-  function resetTurn() {
-    
-  }
+
  
     return (
       <div className='row'>
