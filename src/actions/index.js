@@ -20,4 +20,7 @@ export function hitMonster(payload) {
   return { type: "RESET_TURN", payload }
 };
 
+export  function playerDeath(payload) {
+  return { type: "PLAYER_DEATH", payload }
+};
 

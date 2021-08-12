@@ -26,10 +26,10 @@ import { connect } from 'react-redux';
                     <div className="row ">
                         <div >
                         
-                            <ButtonCapacity player={ownProps.player} />
-                            <ButtonCapacity player={ownProps.player} />
-                            <ButtonCapacity player={ownProps.player} />
-                            <ButtonCapacity player={ownProps.player} />
+                            <ButtonCapacity player={ownProps.player} type='attack' />
+                            <ButtonCapacity player={ownProps.player} type="mana"/>
+                            <ButtonCapacity player={ownProps.player} type="heal"/>
+                            
                             
 
                         </div>

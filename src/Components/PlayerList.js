@@ -1,7 +1,7 @@
 import React from 'react';
 import PlayerCard from './PlayerCard';
 import { connect } from 'react-redux';
-import { resetTurn } from '../actions';
+import { resetTurn, playerDeath } from '../actions';
 
 const mapStateToProps = state => {
 
@@ -15,22 +15,24 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   
   return {
-    reset : (payload)=>(dispatch(resetTurn(payload)))
+    reset : (payload)=>(dispatch(resetTurn(payload))),
   };
 };
 
-const PlayerListConnect = ({PlayerList, count, reset}) => {
+const PlayerListConnect = ({PlayerList, count, reset, death}) => {
 
   const displayPlayers = () => {
+   
     return Object.keys(PlayerList).map(key => {
-      if (count >= 4) {
+      console.log(Object.keys(PlayerList).length , count);
+      if (count >= Object.keys(PlayerList).length) {
        //   console.log(key);
           
            reset({player: PlayerList[key]})
       }  
       
       return(       
-        <PlayerCard key={PlayerList[key].id} player={PlayerList[key]}/>
+        <PlayerCard key={key} player={PlayerList[key]}/>
       )
     });
   }
@@ -38,7 +40,7 @@ const PlayerListConnect = ({PlayerList, count, reset}) => {
  
     return (
       <div className='row'>
-        {displayPlayers()}
+        {displayPlayers() }
       </div>
     );
   }
